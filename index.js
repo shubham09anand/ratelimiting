@@ -23,7 +23,8 @@ app.get("/api/v1/user", (req, res) => {
      console.log(req.originalUrl);
      res.status(200).json({
           name: "Shubham Anand",
-          originalUrl: req.originalUrl
+          originalUrl: req.originalUrl,
+          port: PORT
      })
 });
 
