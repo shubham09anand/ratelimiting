@@ -11,6 +11,7 @@ app.get("/api/v1/", (req, res) => {
 });
 
 app.get("/api/v1/user", (req, res) => {
+     console.log(req.originalUrl);
      res.status(200).json({
           name: "Shubham Anand"
      })
