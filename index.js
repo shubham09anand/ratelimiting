@@ -3,6 +3,15 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+const PORT = process.env.PORT || 8080;
+console.log(PORT);
+
+
+app.use((req, res, next) => {
+     console.log(`Request handled by ${PORT}`);
+     next();
+});
+
 app.get("/api/v1/", (req, res) => {
      console.log("This is api/v1");
      res.status(200).json({
@@ -29,9 +38,6 @@ app.get("/server/health", (req, res) => {
           status: "ok"
      })
 });
-
-const PORT = process.env.PORT || 8080;
-console.log(PORT);
 
 app.listen(PORT, () => {
      console.log(`Server running on http://localhost:${PORT}`);
